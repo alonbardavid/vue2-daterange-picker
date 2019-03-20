@@ -45,6 +45,7 @@
                                       :showWeekNumbers="showWeekNumbers"
                             ></calendar>
                         </div>
+                      <slot name="time" :on-update="onUpdateStartTime" :current-time="start">
                         <calendar-time v-if="timePicker"
                                        @update="onUpdateStartTime"
                                        :miniute-increment="timePickerIncrement"
@@ -52,6 +53,7 @@
                                        :second-picker="timePickerSeconds"
                                        :current-time="start"
                         />
+                      </slot>
                     </div>
 
                     <div class="drp-calendar col right" v-if="!singleDatePicker">
@@ -72,13 +74,16 @@
                                       :showWeekNumbers="showWeekNumbers"
                             ></calendar>
                         </div>
+                      <slot name="time" :on-update="onUpdateEndTime" :current-time="end">
                         <calendar-time v-if="timePicker"
-                                       @update="onUpdateEndTime"
-                                       :miniute-increment="timePickerIncrement"
-                                       :hour24="timePicker24Hour"
-                                       :second-picker="timePickerSeconds"
-                                       :current-time="end"
-                        />
+                                         @update="onUpdateEndTime"
+                                         :miniute-increment="timePickerIncrement"
+                                         :hour24="timePicker24Hour"
+                                         :second-picker="timePickerSeconds"
+                                         :current-time="end"
+                          />
+                      </slot>
+
                     </div>
                 </div>
 
