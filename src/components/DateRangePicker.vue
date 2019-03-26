@@ -230,13 +230,13 @@
         endDate = this.dateRange.endDate;
       }
 
-      data.monthDate = new Date(startDate)
-      data.start = new Date(startDate)
+      data.monthDate = new Date(startDate || this.minDate)
+      data.start = new Date(startDate || this.minDate)
       if (this.singleDatePicker) {
         // ignore endDate for singleDatePicker
-        data.end = new Date(startDate)
+        data.end = new Date(startDate || this.minDate)
       } else {
-        data.end = new Date(endDate)
+        data.end = new Date(endDate || this.minDate)
       }
       data.in_selection = false
       data.open = false
